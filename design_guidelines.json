@@ -1,0 +1,171 @@
+{
+  "app_name": "LogIQ",
+  "personality": "4 Tactile / Playful LIGHT",
+  "personality_one_liner": "A tactile, joyful, and emotionally encouraging learning journey that feels like a toy, built with chunky interactive modules and soft rounded typography.",
+  "color": {
+    "surface": "#FAFAF7",
+    "onSurface": "#1A1C19",
+    "surfaceSecondary": "#F0F2E9",
+    "onSurfaceSecondary": "#2D332A",
+    "surfaceTertiary": "#E2E5D8",
+    "onSurfaceTertiary": "#1A1C19",
+    "surfaceInverse": "#1A1C19",
+    "onSurfaceInverse": "#FAFAF7",
+    "brand": "#4ADE80",
+    "brandPrimary": "#22C55E",
+    "onBrandPrimary": "#FFFFFF",
+    "brandSecondary": "#F43F5E",
+    "onBrandSecondary": "#FFFFFF",
+    "brandTertiary": "#FDE047",
+    "onBrandTertiary": "#1A1C19",
+    "success": "#16A34A",
+    "onSuccess": "#FFFFFF",
+    "warning": "#EAB308",
+    "onWarning": "#1A1C19",
+    "error": "#DC2626",
+    "onError": "#FFFFFF",
+    "border": "#E5E7EB",
+    "borderStrong": "#D1D5DB",
+    "divider": "#E5E7EB"
+  },
+  "typography": {
+    "displayFontFamily": "Fredoka",
+    "textFontFamily": "Nunito",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Generous spacing. Make the interface feel touchable with oversized tap areas and clear foreground/background layering. Controlled asymmetry for energy.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": 2,
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": true,
+    "do's": [
+      "Use frosted glass on the sticky top header on the level map",
+      "Use frosted glass on the bottom tab bar to allow the level path to flow underneath",
+      "Apply to bottom-sheet handles for hints or level info"
+    ],
+    "dont's": [
+      "Never blur puzzle question cards",
+      "Do not blur primary CTA buttons",
+      "Avoid on form inputs or dense stats sections"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Onboarding",
+      "purpose": "Introduce the gamified learning concept playfully using full-bleed stylized scenes and primary CTAs anchored at the bottom.",
+      "states": {
+        "loading": "Centered bouncy spinner.",
+        "empty": "N/A",
+        "error": "N/A"
+      },
+      "layout": "Full-bleed imagery at the top 60% with a gradient-to-dark scrim. The bottom 40% contains a large Fredoka heading, Nunito body text, and a chunky pill-shaped primary CTA button sticky at the bottom."
+    },
+    {
+      "name": "Levels Map (Home)",
+      "purpose": "A scrollable spatial journey mapping 100 progressively harder levels through distinct visual zones.",
+      "states": {
+        "loading": "Skeleton nodes on a winding path.",
+        "empty": "N/A",
+        "error": "Card overlay with 'Map lost! Retry' button."
+      },
+      "layout": "Continuous vertical scroll. Use a winding SVG path connecting chunky circular level nodes. Completed levels use 'brandPrimary', current level is oversized and pulsating with 'brandTertiary', locked levels are muted 'surfaceSecondary'. Top header shows streak and XP in a glass container. Bottom tab bar is glass."
+    },
+    {
+      "name": "Puzzle Play",
+      "purpose": "Focused gameplay screen presenting the logic puzzle with clear tactile choices and accessible hints.",
+      "states": {
+        "loading": "Ghost lines for the question block.",
+        "empty": "N/A",
+        "error": "Error loading puzzle, retry button."
+      },
+      "layout": "Top bar features a prominent progress bar and a 'Hint' icon. The question sits in a large, elevated card (shadow 2, radius lg) with generous padding. Answers are stacked pill-shaped buttons below. Selected state uses 'brandPrimary'. Sticky 'Submit' button at the bottom."
+    },
+    {
+      "name": "Level Complete",
+      "purpose": "A micro-celebration screen summarizing XP gained, streak updates, and providing AI explanations.",
+      "states": {
+        "loading": "Calculating rewards animation.",
+        "empty": "N/A",
+        "error": "Failed to save progress."
+      },
+      "layout": "Oversized celebratory visual (mascot or trophy) at the top. Large numeric XP counter. A chunky card holding the AI explanation for the puzzle. A massive 'brandPrimary' pill button to 'Continue' pinned to the bottom."
+    },
+    {
+      "name": "Daily Challenge",
+      "purpose": "A special one-off daily puzzle emphasizing high rewards and time-sensitivity.",
+      "states": {
+        "loading": "Spinner",
+        "empty": "Check back tomorrow for a new challenge!",
+        "error": "Unable to load challenge."
+      },
+      "layout": "Hero card with an abstract brain 3D image as background, featuring a strong vertical scrim. Bold typography declaring the challenge theme. Follows the Puzzle Play layout upon starting."
+    },
+    {
+      "name": "Profile / Stats",
+      "purpose": "Showcase player achievements, current XP, streaks, and badges in a visually rich grid.",
+      "states": {
+        "loading": "Skeleton grids for badges.",
+        "empty": "No badges earned yet. Play some levels!",
+        "error": "Unable to load stats."
+      },
+      "layout": "Top half is a profile card with the player avatar (mascot) and total XP. Bottom half is a 2-column grid of earned badges (brandTertiary tinted rounded squares with icons) using space-between and md gap."
+    }
+  ],
+  "images": {
+    "onboarding_scene": {
+      "url": "https://images.unsplash.com/photo-1710244182004-1c708b3f146d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwyfHxjb2xvcmZ1bCUyMDNkJTIwYWJzdHJhY3QlMjBzaGFwZSUyMGN1dGV8ZW58MHx8fHwxNzg2NzM3NzIwfDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Colorful 3D abstract shapes stacked creatively"
+    },
+    "mascot_avatar": {
+      "url": "https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwxfHxjdXRlJTIwb3dsJTIwbWFzY290JTIwM2R8ZW58MHx8fHwxNzg2NzM3NzEzfDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Cute toy mascot resembling a smart owl with a hat"
+    },
+    "daily_challenge_hero": {
+      "url": "https://images.unsplash.com/photo-1617791160536-598cf32026fb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMDNkJTIwYnJhaW4lMjBpbGx1c3RyYXRpb258ZW58MHx8fHwxNzg2NzM3NzEzfDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Iridescent 3D brain illustration on a deep background"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow the Tactile/Playful LIGHT personality: Use bouncy press animations (scale 0.93), chunky rounded elements, and generous tap targets.",
+    "BANNED COLORS: Do not use ANY shades of blue, purple, indigo, navy, violet, or magenta. Use the provided Grass Green, Rose/Coral Red, and Sunny Yellow.",
+    "Implement the Level Map as a vertical scrollable flow (similar to Duolingo) with a winding path and clearly sized nodes for levels.",
+    "Use Phosphor icons EXCLUSIVELY and keep them filled for a toy-like, playful feel.",
+    "Make sure all images with text overlay (like the daily challenge hero) implement the 3-stop vertical gradient scrim (transparent to surfaceInverse) to guarantee WCAG contrast.",
+    "For tactile buttons, rely on `Pressable` with shadow tier 2. Use `react-native-reanimated` for the overshoot spring effect on press.",
+    "Always reserve safe area at the top and bottom (especially above the bottom tabs and behind sticky CTA buttons)."
+  ]
+}
